@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3F934C1CF3BEB50091F0C5 /* TestLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3F3F934B1CF3BEB50091F0C5 /* TestLocation.gpx */; };
 		3F9275CA1CEF543F00AA9833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9275C91CEF543F00AA9833 /* AppDelegate.swift */; };
 		3F9275CC1CEF543F00AA9833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9275CB1CEF543F00AA9833 /* ViewController.swift */; };
 		3F9275CF1CEF543F00AA9833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9275CD1CEF543F00AA9833 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F3F934B1CF3BEB50091F0C5 /* TestLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TestLocation.gpx; path = ../../Downloads/TestLocation.gpx; sourceTree = "<group>"; };
 		3F9275C61CEF543F00AA9833 /* Green P Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Green P Parking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9275C91CEF543F00AA9833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F9275CB1CEF543F00AA9833 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		3F9275BD1CEF543F00AA9833 = {
 			isa = PBXGroup;
 			children = (
+				3F3F934B1CF3BEB50091F0C5 /* TestLocation.gpx */,
 				3F9275C81CEF543F00AA9833 /* Green P Parking */,
 				3F9275DD1CEF543F00AA9833 /* Green P ParkingTests */,
 				3F9275E81CEF543F00AA9833 /* Green P ParkingUITests */,
@@ -234,6 +237,7 @@
 			files = (
 				3F9275D41CEF543F00AA9833 /* LaunchScreen.storyboard in Resources */,
 				3F9275D11CEF543F00AA9833 /* Assets.xcassets in Resources */,
+				3F3F934C1CF3BEB50091F0C5 /* TestLocation.gpx in Resources */,
 				3F9275CF1CEF543F00AA9833 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +490,7 @@
 				3F9275F01CEF543F00AA9833 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F9275F11CEF543F00AA9833 /* Build configuration list for PBXNativeTarget "Green P ParkingTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +499,7 @@
 				3F9275F31CEF543F00AA9833 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F9275F41CEF543F00AA9833 /* Build configuration list for PBXNativeTarget "Green P ParkingUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +508,7 @@
 				3F9275F61CEF543F00AA9833 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
