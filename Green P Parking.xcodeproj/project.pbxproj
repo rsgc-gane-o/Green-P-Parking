@@ -14,6 +14,7 @@
 		3F9275D41CEF543F00AA9833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9275D21CEF543F00AA9833 /* LaunchScreen.storyboard */; };
 		3F9275DF1CEF543F00AA9833 /* Green_P_ParkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9275DE1CEF543F00AA9833 /* Green_P_ParkingTests.swift */; };
 		3F9275EA1CEF543F00AA9833 /* Green_P_ParkingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9275E91CEF543F00AA9833 /* Green_P_ParkingUITests.swift */; };
+		3F9275F81CEF54B000AA9833 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9275F71CEF54B000AA9833 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		3F9275E51CEF543F00AA9833 /* Green P ParkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Green P ParkingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9275E91CEF543F00AA9833 /* Green_P_ParkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Green_P_ParkingUITests.swift; sourceTree = "<group>"; };
 		3F9275EB1CEF543F00AA9833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F9275F71CEF54B000AA9833 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = "../../../Downloads/SwiftyJSON-master 3/Source/SwiftyJSON.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				3F9275CD1CEF543F00AA9833 /* Main.storyboard */,
 				3F9275D01CEF543F00AA9833 /* Assets.xcassets */,
 				3F9275D21CEF543F00AA9833 /* LaunchScreen.storyboard */,
+				3F9275F71CEF54B000AA9833 /* SwiftyJSON.swift */,
 				3F9275D51CEF543F00AA9833 /* Info.plist */,
 			);
 			path = "Green P Parking";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F9275F81CEF54B000AA9833 /* SwiftyJSON.swift in Sources */,
 				3F9275CC1CEF543F00AA9833 /* ViewController.swift in Sources */,
 				3F9275CA1CEF543F00AA9833 /* AppDelegate.swift in Sources */,
 			);
