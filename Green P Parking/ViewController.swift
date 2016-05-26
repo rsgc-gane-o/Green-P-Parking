@@ -10,16 +10,42 @@ import UIKit
 import MapKit
 import CoreLocation
 
+extension Double {
+    var degreesToRadians: Double { return self * M_PI / 180 }
+    var radiansToDegrees: Double { return self * 180 / M_PI }
+}
+
+
+
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     let baseURL = "http://www1.toronto.ca/City%20Of%20Toronto/Information%20&%20Technology/Open%20Data/Data%20Sets/Assets/Files/greenPParking2015.json"
 
-   
+    var latitude : String = ""
+    var longitude : String = ""
+    var latitudeAsDouble : Double = 0.0
+    var longitudeAsDouble : Double = 0.0
+    let averageEarthRadius : Double = 6373
+    var shortestParkingDistance : Double = Double.infinity
+    var closestParking : [String : String] = [:]
+    
     @IBOutlet weak var map: MKMapView!
+    
+    @IBOutlet weak var addressLabel: UILabel!
+    
+    @IBAction func button(sender: AnyObject) {
+        getJSON()
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        self.map.showsUserLocation = true
+    }
     
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
         getJSON()
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -27,6 +53,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.startUpdatingLocation()
         self.map.showsUserLocation = true
         // Do any additional setup after loading the view, typically from a nib.
+         */
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,13 +68,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
         self.map.setRegion(region, animated: true)
         self.locationManager.stopUpdatingLocation()
+        let latestLocation = locations.last
+       let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: Double(finalLat), longitude: Double(finalLong))
+        self.map.addAnnotation(annotation)
+        
+        
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Errors:" + error.localizedDescription)
     }
     
-    
+    //func currentLocationDistanceTo()
+    var finalLat : Float = 0
+    var finalDist : Float = 100
+    var finalLong : Float = 0
+    var finalAddr = ""
     
     func getJSON(){
         let url = NSURL(string: baseURL)
@@ -57,22 +94,48 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             if error == nil {
                 let swiftyJSON = JSON(data: data!)
                 let carPark = swiftyJSON["carparks"].arrayValue
+                /*
+                var i = 0
+                for lat in carPark {
+                    i++
+                }
+                */
+                //var distances : [Float] = []
                 
                 for lat in carPark {
                     let lats = lat["lat"].stringValue
-                    print(lats)
+                    let lngs = lat["lng"].stringValue
+                    let addr = lat["address"].stringValue
+                    print(addr)
+                    
+                    guard let latAsFloat = Float(lats) else {
+                        print("Cannot convert")
+                        return
+                    }
+                    guard let lngAsFloat = Float(lngs) else {
+                        print("Cannot convert")
+                        return
+                    }
+                    //distances.append(sqrt((latAsFloat-43.669395)*(latAsFloat-43.669395) + (lngAsFloat+79.410188)*(lngAsFloat+79.410188)))
+                    let currentDist = sqrt((latAsFloat-43.669395)*(latAsFloat-43.669395) + (lngAsFloat+79.410188)*(lngAsFloat+79.410188))
+                    if currentDist < self.finalDist {
+                        self.finalDist = currentDist
+                        self.finalLat = latAsFloat
+                        self.finalLong = lngAsFloat
+                        self.finalAddr = addr
+                        self.addressLabel.text = addr
+
+                    }
                 }
-                for lng in carPark {
-                    let lngs = lng["lng"].stringValue
-                    print(lngs)
-                }
-                //print(parkingLat)
             } else {
                 print("There was an error")
             }
             
     }
+        dispatch_async(dispatch_get_main_queue()){
+            self.addressLabel.text = self.finalAddr
+        }
         task.resume()
 }
-
+    
 }
